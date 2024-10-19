@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/controllers/counter_controller.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key, required this.title});
@@ -10,11 +11,11 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  int _counter = 0;
+  final CounterController _counterController = CounterController();
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      _counterController.increment();
     });
   }
 
@@ -33,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
               'You have pushed the button this many times:',
             ),
             Text(
-              '$_counter',
+              '${_counterController.count}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
